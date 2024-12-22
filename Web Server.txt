@@ -1,0 +1,86 @@
+﻿* Install NGINX
+https://ubuntu.com/server/docs/how-to-install-nginx
+* Install APACHE2
+https://ubuntu.com/server/docs/how-to-use-apache2-modules
+* Install php8.3
+## Save existing php package list to packages.txt file
+sudo dpkg -l | grep php | tee packages.txt
+
+
+# Add Ondrej's PPA
+sudo add-apt-repository ppa:ondrej/php # Press enter when prompted.
+sudo apt update
+
+
+# Install new PHP 8.3 packages
+sudo apt install php8.3 php8.3-cli php8.3-{bz2,curl,mbstring,intl}
+
+
+# Install FPM OR Apache module
+sudo apt install php8.3-fpm
+# OR
+# sudo apt install libapache2-mod-php8.2
+
+
+# On Apache: Enable PHP 8.3 FPM
+sudo a2enconf php8.3-fpm
+# When upgrading from an older PHP version:
+sudo a2disconf php8.2-fpm
+
+
+## Remove old packages
+sudo apt purge php8.2*
+https://php.watch/articles/php-8.3-install-upgrade-on-debian-ubuntu
+* Install composer
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04
+* Install Nodejs
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04
+* clone git web
+git clone https://github.com/mamun724682/Inventory-Management-System-Laravel-SPA.git
+* Install XAMPP
+https://github.com/benrimba/Cara-Install-XAMPP-di-Linux-Ubuntu-20.04
+* Tutorial web
+Clone the repository:
+
+
+Navigate to the project folder:
+
+
+Install PHP dependencies:
+
+
+composer install
+Copy .env configuration:
+
+
+cp .env.example .env
+Generate application key:
+
+
+php artisan key:generate
+Configure the database in the .env file with your local credentials.
+
+
+Run database migrations and seed sample data:
+
+
+php artisan migrate:fresh --seed
+Link storage for media files:
+
+
+php artisan storage:link
+Install JavaScript and CSS dependencies:
+
+
+membuka port 8000
+sudo ufw allow 8000
+sudo ufw status
+
+
+start xampp
+sudo /opt/lampp/lampp start
+
+
+npm install && npm run dev
+Start the Laravel development server:
+php artisan serve
